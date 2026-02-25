@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -29,7 +27,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:  Text(
+        title: Text(
           'Register',
           style: TextStyle(fontSize: 20.sp, fontWeight: FontWeight.bold),
         ),
@@ -47,9 +45,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 'Register your account',
                 style: TextStyle(fontSize: 16, color: Colors.grey[600]),
               ),
-               SizedBox(height: 40.h),
+              SizedBox(height: 40.h),
 
-              
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: BlocBuilder<LoginBloc, LoginState>(
@@ -65,18 +62,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: Colors.lightBlueAccent),
+                          borderSide: const BorderSide(
+                            color: Colors.lightBlueAccent,
+                          ),
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                       ),
                       onChanged: (value) {
-                        context
-                            .read<LoginBloc>()
-                            .add(NameChanged(name: value));
+                        context.read<LoginBloc>().add(NameChanged(name: value));
                       },
-                      validator: (value) =>
-                          value == null || value.isEmpty ? 'Name required' : null,
+                      validator: (value) => value == null || value.isEmpty
+                          ? 'Name required'
+                          : null,
                     );
                   },
                 ),
@@ -99,15 +96,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: Colors.lightBlueAccent),
+                          borderSide: const BorderSide(
+                            color: Colors.lightBlueAccent,
+                          ),
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                       ),
                       onChanged: (value) {
-                        context
-                            .read<LoginBloc>()
-                            .add(Emailchanged(email: value));
+                        context.read<LoginBloc>().add(
+                          Emailchanged(email: value),
+                        );
                       },
                       validator: Validators.validateEmail,
                     );
@@ -140,15 +138,16 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                         focusedBorder: OutlineInputBorder(
-                          borderSide:
-                              const BorderSide(color: Colors.lightBlueAccent),
+                          borderSide: const BorderSide(
+                            color: Colors.lightBlueAccent,
+                          ),
                           borderRadius: BorderRadius.circular(10.r),
                         ),
                       ),
                       onChanged: (value) {
-                        context
-                            .read<LoginBloc>()
-                            .add(Passwordchanged(password: value));
+                        context.read<LoginBloc>().add(
+                          Passwordchanged(password: value),
+                        );
                       },
                       validator: Validators.validatePassword,
                     );
@@ -156,7 +155,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
               ),
 
-               SizedBox(height: 50.h),
+              SizedBox(height: 50.h),
 
               /// Register Button with BlocListener
               BlocListener<LoginBloc, LoginState>(
@@ -165,15 +164,14 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     ScaffoldMessenger.of(context)
                       ..hideCurrentSnackBar()
                       ..showSnackBar(
-                          SnackBar(content: Text(state.message.toString())));
+                        SnackBar(content: Text(state.message.toString())),
+                      );
                   }
 
                   if (state.loginStatus == LoginStatus.success) {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(
-                        builder: (_) => const LoginScreen(),
-                      ),
+                      MaterialPageRoute(builder: (_) => const LoginScreen()),
                     );
                   }
                 },
@@ -209,9 +207,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     onPressed: () {
                       Navigator.pushReplacement(
                         context,
-                        MaterialPageRoute(
-                          builder: (_) => const LoginScreen(),
-                        ),
+                        MaterialPageRoute(builder: (_) => const LoginScreen()),
                       );
                     },
                     child: const Text('Login Now'),

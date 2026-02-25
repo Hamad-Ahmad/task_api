@@ -13,7 +13,7 @@ const LoginEvent();
   }
   class NameChanged extends LoginEvent { 
   final String name;
-  NameChanged({required this.name});
+  const NameChanged({required this.name});
 }
 
 

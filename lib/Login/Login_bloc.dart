@@ -90,9 +90,6 @@ void registerApi(RegisterApi event, Emitter<LoginState> emit) async {
       body: data, 
     );
 
-    print('Status code: ${response.statusCode}');
-    print('Response body: ${response.body}');
-
     if (response.statusCode == 200 || response.statusCode == 201) {
       emit(state.copyWith(
         loginStatus: LoginStatus.success,

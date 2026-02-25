@@ -145,8 +145,6 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                   ),
-              
-                  // Register Row
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
@@ -167,18 +165,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 ],
               ),
             ),
-          )
-        
-      
-
+          ),
     );
   }
-  // Icon getpasswordicon(bool ispasswordvisible){
-  //   if(ispasswordvisible){
-  //     return Icon(Icons.visibility);
-  //   }else{
-  //     return Icon(Icons.visibility_off);
-  //   }
-
-  // }
 }
